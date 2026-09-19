@@ -34,7 +34,6 @@ struct Player {
 
     Player() : name("王橹杰"),dengji(1), jingyan(0), xueliang(110), gongji(1), tizhi(1), mingjie(5), wuxing(4), jingshen(10), shuxingdian(0) {}
 
-    // 构造函数2：a1模板
     Player(int type) {
         if(type == 1) {
             dengji = 1;
@@ -78,8 +77,7 @@ struct Player {
     }
 };
 
-// 创建4个角色实例
-Player wanglujie;   // 默认构造
+Player wanglujie;   
 Player a1(1);
 Player a2(2);
 Player a3(3);
