@@ -25,7 +25,7 @@ struct Player {
     double xueliang;
     int gongji;
     int tizhi;
-    int mingjie;
+    int mingjie; 
     int wuxing;
     double jingshen;
     int shuxingdian;
