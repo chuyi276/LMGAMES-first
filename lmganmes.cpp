@@ -16,6 +16,7 @@ double maxxueliang = 110;
 int suiji1 = 0;
 double zongjingyan = 0;
 int kill = 0;
+int tianshu = 0;
 
 int lm1 = 0,lm2 = 0,lm3 = 0,lm4 = 0;;
 
@@ -34,7 +35,7 @@ struct Player {
 
     Player() : name("王橹杰"),dengji(1), jingyan(0), xueliang(110), gongji(1), tizhi(1), mingjie(5), wuxing(4), jingshen(10), shuxingdian(0) {}
 
-    // 构造函数2：a1模板
+  
     Player(int type) {
         if(type == 1) {
             dengji = 1;
@@ -46,7 +47,7 @@ struct Player {
             wuxing = 0;
             jingshen = 0;
             shuxingdian = 0;
-            name = "a1";
+            name = "力";
             maxxl = 10;
         }
         else if(type == 2) {
@@ -59,7 +60,7 @@ struct Player {
             wuxing = 0;
             jingshen = 0;
             shuxingdian = 0;
-            name = "a2";
+            name = "血";
             maxxl = 20;
         }
         else if(type ==3) {
@@ -72,7 +73,7 @@ struct Player {
             wuxing = 0;
             jingshen = 0;
             shuxingdian = 0;
-            name = "a3";
+            name = "敏";
             maxxl = 5;
         }
     }
@@ -80,9 +81,9 @@ struct Player {
 
 
 Player wanglujie; 
-Player a1(1);
-Player a2(2);
-Player a3(3);
+Player 力(1);
+Player 血(2);
+Player 敏(3);
 
 void xiuxi();
 void xiulian();
@@ -147,15 +148,15 @@ int main(){
             case '4':
                 suiji1 = rand()% 2 + 1;
                 if(suiji1==0){
-                    youli(a1);
+                    youli(力);
                     break;
                 }
                 if(suiji1==1){
-                    youli(a2);
+                    youli(血);
                     break;
                 }
                 if(suiji1==2){
-                    youli(a3);
+                    youli(敏);
                     break;
                 }
             default:
@@ -169,7 +170,12 @@ int main(){
 
 //休息
 void xiuxi() {
-
+    if(t/6==0){
+        tianshu+=1;
+        cout<<"一个神秘人在王橹杰睡觉时在床边看着王橹杰，王橹杰似乎感觉到了，睁眼时却什么也没看到，王橹杰有所思考"<<endl;
+        cout<<"王橹杰的体质增加了！！！"<<endl;
+        wanglujie.tizhi+=tianshu;
+    }
     jieshu();
     t+=1;
     cout<<"王橹杰感到精力充沛"<<endl;
@@ -288,6 +294,12 @@ void taopao(){
 
 //修炼
 void xiulian(){
+    if(t/11==0){
+        tianshu+=1;
+        cout<<"一个神秘人在王橹杰修炼时在不远处看着王橹杰，王橹杰似乎感觉到了，睁眼时却什么也没看到，王橹杰有所思考"<<endl;
+        cout<<"王橹杰的悟性增加了！！！"<<endl;
+        wanglujie.wuxing+=tianshu;
+    }
     jieshu();
     t+=1;
     cout<<"王橹杰的经验增加了"<<endl;
@@ -300,9 +312,10 @@ void xiulian(){
 
 //游历
 void youli(Player mingzi){
-    direnshuxing(a1);
-    direnshuxing(a2);
-    direnshuxing(a3);
+    direnshuxing(力);
+    direnshuxing(血);
+    direnshuxing(敏);
+
     char op1;
     int dddd = rand() % 51 + 50;
     if(dddd==10){
@@ -409,7 +422,7 @@ void mianban(){
     cout<<"精神: "<<wanglujie.jingshen<<"(与经验获取倍率有关)"<<endl;
     cout<<"=========================================================="<<endl;
     cout<<"自由属性点: "<<wanglujie.shuxingdian<<endl;
-    cout<<"总杀敌数："<<kill<<" 获取的总经验值："<<zongjingyan<<endl;
+    cout<<"总杀敌数："<<kill<<" 获取的总经验值："<<zongjingyan<<"(包括被扣除的经验值)"<<endl;
     cout<<"当前是第"<<t<<"天";
     cout<<"可添加在体质(a)，敏捷(s)，悟性(d)以及精神(f)四个属性上，其中添加悟性需要消耗3点属性点"<<endl;
     cout<<"按z退出"<<endl;
