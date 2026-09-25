@@ -1,5 +1,6 @@
 用C++写游戏核心，然后用js写网页布局，可以分享给别人玩，
 修改，先用c++写窗口游戏，写完之后，后续再将其与html结合做成网页版的，先做个本地运行的。
+生成exe运行文件方式在最下面
 
 先写个文字的小游戏。
 
@@ -29,3 +30,22 @@
 暂时的技能就是额外造成一倍伤害。a攻击力高，b防御力高，c闪避率高，d技能触发率高
 
 游戏目标：与穆祉丞结为夫夫，并打败所有下家，触发世纪婚礼结局。
+
+
+在cmd运行以下代码（要先下载vs code时选择C++的桌面开发）
+
+先找到总文件目录
+cd （文件所在地址）
+编译C++源文件
+python setup.py build_ext --inplace
+编译py源文件
+python game_ui.py
+打包源文件
+pyinstaller --clean --noconfirm --onefile --name LMG_Game --windowed --distpath dist_final --workpath build_final --collect-all pygame --hidden-import gamelogic game_ui.py
+
+
+四个成就及对应剧情
+I DONT CARE
+落叶知我意，天公亦做美
+爱夫者风生水起
+世纪婚礼
